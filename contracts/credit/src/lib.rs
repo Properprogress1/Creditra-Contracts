@@ -625,8 +625,9 @@ mod test {
         let env = Env::default();
         let (_admin, borrower, contract_id) = setup_test(&env);
         
+        let negative_amount: i128 = -100;
         call_contract(&env, &contract_id, || {
-            Credit::repay_credit(env.clone(), borrower.clone(),-100_i128);
+            Credit::repay_credit(env.clone(), borrower.clone(), negative_amount);
         });
     }
 
